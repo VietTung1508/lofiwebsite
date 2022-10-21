@@ -1,0 +1,59 @@
+.wrapper {
+  width: 100vw;
+  height: 61px;
+  position: absolute;
+  z-index: 10;
+  background-image: linear-gradient(180deg, rgba(66, 65, 65, 0.8), transparent);
+
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px 48px;
+
+  img {
+    max-width: 180px;
+    max-height: 180px;
+  }
+}
+
+.clockBox {
+  color: #fff;
+  font-weight: 600;
+  background: hsla(0, 0%, 100%, 0.15);
+  padding: 7px 4px;
+  border-radius: 4px;
+  cursor: default;
+  margin-right: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-wrap {
+  padding: 3px 6px;
+  margin-left: 5px;
+  background-color: #14141d;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.iconExpand {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.iconVolume {
+  color: #fff;
+  font-size: 1rem;
+  flex-shrink: 0;
+}

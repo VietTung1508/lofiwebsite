@@ -1,0 +1,64 @@
+.wrap {
+  padding: 6px 6px;
+  color: #fff;
+  background-color: #14141d;
+  cursor: pointer;
+  &:hover {
+    background: linear-gradient(
+        0deg,
+        hsla(0, 0%, 100%, 0.1),
+        hsla(0, 0%, 100%, 0.1)
+      ),
+      #121212;
+  }
+}
+
+.play {
+  width: 35px;
+  border-width: 0px 0.5px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.pre,
+.next {
+  width: 35px;
+  border-width: 0px 0.5px;
+}
+
+.pre {
+  border-radius: 8px 0px 0px 8px;
+}
+
+.next {
+  border-radius: 0px 8px 9px 0px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-wrap {
+  padding: 3px 6px;
+  margin-left: 5px;
+  background-color: #14141d;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.iconExpand {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.iconVolume {
+  color: #fff;
+  font-size: 1rem;
+  flex-shrink: 0;
+}

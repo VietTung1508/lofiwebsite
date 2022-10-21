@@ -1,0 +1,84 @@
+.wrapper {
+  width: 47px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #121212;
+  position: absolute;
+  top: 30%;
+  right: 35px;
+  border-radius: 12px;
+  padding: 15px 0;
+  z-index: 10;
+  //   transition: 1s border-radius;
+}
+
+.wrapper-icon {
+  color: #403d39;
+  .icon {
+    padding: 14px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
+
+.board {
+  min-width: 300px;
+  height: 350px;
+  background-color: #121212;
+  position: absolute;
+  z-index: 9;
+  top: 15%;
+  right: 80px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.open {
+  border-top-left-radius: 0;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 32px;
+  padding: 16px 0 4px;
+  h4 {
+    color: #fff;
+    font-weight: 400;
+  }
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.board-setMood {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px auto;
+  max-width: 280px;
+  h4 {
+    color: #fff;
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  .mood {
+    background-color: #403d39;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 2px;
+    width: 80px;
+    border-radius: 14px;
+  }
+}
+
+.saxIcon {
+  width: 50px;
+  height: 40px;
+  margin-bottom: 10px;
+}
