@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Board from "../ModifileBoard/Board";
 import { useSelector } from "react-redux";
 import RainBtn from "../RainBtn/RainBtn.js";
+import TrafficBtn from "../TrafficBtn/TrafficBtn.js";
 
 const cx = className.bind(styles);
 
@@ -14,13 +15,12 @@ function Home() {
 
   const weather = `${mode}-${rain}`;
 
-  console.log(weather);
-
   return (
     <>
       <Navbar />
       <Board />
       <RainBtn />
+
       <video
         className={cx(weather === "day-clear" ? "videoOn" : "videoOff")}
         autoPlay
@@ -53,6 +53,7 @@ function Home() {
       >
         <source src="/assets/videos/Day-rainny.mp4" type="video/mp4" />
       </video>
+      <TrafficBtn />
     </>
   );
 }

@@ -1,0 +1,27 @@
+.wrapper {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  border: solid 2px #fff;
+  border-radius: 20px;
+  transition: width 0.5s, background-color 0.5s;
+  color: white;
+
+  &:hover {
+    width: 80px;
+    background-color: rgba(18, 18, 18, 0.8);
+    border: none;
+  }
+
+  .car {
+    width: 20px;
+    height: 20px;
+  }
+}

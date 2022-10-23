@@ -1,7 +1,7 @@
 import style from "./Player.module.scss";
 import className from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   faBackwardFast,
   faForwardFast,
@@ -17,19 +17,61 @@ import {
   faVolumeXmark,
   faWindowMinimize,
 } from "@fortawesome/free-solid-svg-icons";
-import { jazzy } from "../../data/songData";
+import { chill } from "../../data/songData";
+import ReactAudioPlayer from "react-audio-player";
+import { useSelector } from "react-redux";
 
 const cx = className.bind(style);
 
 function Player() {
   const [pause, setPause] = useState(true);
   const [sound, setSound] = useState(true);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
+  const mainVolume = useSelector((state) => state.setMainVolume.volume);
 
   const audioRef = useRef();
+
+  useEffect(() => {
+    audioRef.current.volume = mainVolume / 100;
+  }, [mainVolume]);
+
+  const handlePre = () => {
+    if (pause) return;
+
+    let temp = currentSongIndex;
+    temp--;
+
+    if (temp < 0) {
+      setCurrentSongIndex(chill.length - 1);
+    } else {
+      setCurrentSongIndex(temp);
+    }
+  };
+
+  const handleNext = () => {
+    if (pause) return;
+
+    let temp = currentSongIndex;
+    temp++;
+
+    if (temp > chill.length - 1) {
+      setCurrentSongIndex(0);
+    } else {
+      setCurrentSongIndex(temp);
+    }
+  };
+
   return (
     <>
+      <audio
+        ref={audioRef}
+        src={chill[currentSongIndex].src}
+        autoPlay={!pause}
+        loop
+      ></audio>
       <div className="player-action">
-        <button className={cx("wrap", "pre")}>
+        <button className={cx("wrap", "pre")} onClick={handlePre}>
           <FontAwesomeIcon icon={faBackwardFast} />
         </button>
         <button
@@ -45,7 +87,7 @@ function Player() {
         >
           <FontAwesomeIcon icon={pause ? faPlay : faPause} />
         </button>
-        <button className={cx("wrap", "next")}>
+        <button className={cx("wrap", "next")} onClick={handleNext}>
           <FontAwesomeIcon icon={faForwardFast} />
         </button>
       </div>
@@ -64,7 +106,6 @@ function Player() {
             />
           </button>
         </Tippy>
-
         <button
           className={cx("action-wrap")}
           onClick={() => {
@@ -78,7 +119,6 @@ function Player() {
         >
           <FontAwesomeIcon icon={faExpand} className={cx("iconExpand")} />
         </button>
-        <audio ref={audioRef} src={jazzy[1].src} loop></audio>
       </div>
     </>
   );
