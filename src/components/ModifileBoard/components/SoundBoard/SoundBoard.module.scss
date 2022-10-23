@@ -1,0 +1,136 @@
+.board {
+  min-width: 300px;
+  min-height: 370px;
+  background-color: #121212;
+  position: absolute;
+  z-index: 9999;
+  top: 15%;
+  right: 80px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+  padding: 16px 0 4px;
+
+  h4 {
+    color: #fff;
+    font-weight: 800;
+  }
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.board-setMood {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px auto;
+  max-width: 270px;
+  h4 {
+    color: rgb(50, 45, 50);
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  .mood {
+    background-color: rgba(40, 40, 40, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    width: 75px;
+    min-height: 75px;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+
+    .icon {
+      width: 135px;
+      height: 135px;
+      position: absolute;
+      transform: translateY(-12%);
+      filter: invert(99%) sepia(99%) saturate(3%) hue-rotate(250deg)
+        brightness(60%) contrast(100%);
+    }
+
+    .active {
+      filter: none;
+    }
+
+    h4 {
+      position: absolute;
+      bottom: 10px;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.mainSoundRange {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .volume-slider {
+    height: 11px !important;
+    color: #f3a952 !important;
+    width: 180px !important;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .off {
+    position: absolute;
+    top: 12px;
+    left: 30px;
+  }
+
+  .on {
+    position: absolute;
+    top: 12px;
+    right: 22px;
+  }
+}
+
+.sounds {
+  .sounds-title {
+    color: #fff;
+    font-weight: 800;
+    margin: 20px 30px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .volume-slider {
+    height: 20px !important;
+    color: #f3a952 !important;
+    width: 115px !important;
+  }
+
+  .sound {
+    height: 38px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 29px;
+    align-items: center;
+
+    .sound-title {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+  }
+}

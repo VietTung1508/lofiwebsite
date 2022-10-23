@@ -1,5 +1,6 @@
 .wrapper {
   width: 47px;
+  height: 225px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -10,7 +11,7 @@
   border-radius: 12px;
   padding: 15px 0;
   z-index: 10;
-  //   transition: 1s border-radius;
+  transition: all 0.3s;
 }
 
 .wrapper-icon {
@@ -20,114 +21,54 @@
     font-size: 1.2rem;
     cursor: pointer;
   }
-}
 
-.board {
-  min-width: 300px;
-  height: 350px;
-  background-color: #121212;
-  position: absolute;
-  z-index: 9999;
-  top: 15%;
-  right: 80px;
-  border-radius: 24px;
-  overflow: hidden;
+  .active {
+    color: #f3a952;
+  }
+
+  .off {
+    display: none;
+  }
 }
 
 .open {
   border-top-left-radius: 0;
 }
 
-.board-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 32px;
-  padding: 16px 0 4px;
-
-  h4 {
-    color: #fff;
-    font-weight: 800;
-  }
-  img {
-    width: 25px;
-    height: 25px;
-  }
+.more {
+  height: 360px;
+  top: 20%;
 }
 
-.board-setMood {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 10px auto;
-  max-width: 270px;
-  h4 {
-    color: rgb(50, 45, 50);
-    font-weight: 400;
-    font-size: 0.8rem;
-  }
-
-  .mood {
-    background-color: rgba(40, 40, 40, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 7px;
-    width: 75px;
-    min-height: 75px;
-    border-radius: 12px;
-    cursor: pointer;
-    position: relative;
-
-    .icon {
-      width: 135px;
-      height: 135px;
-      position: absolute;
-      transform: translateY(-12%);
-      filter: invert(99%) sepia(99%) saturate(3%) hue-rotate(250deg)
-        brightness(60%) contrast(100%);
-
-      &:hover {
-        filter: none;
-      }
-    }
-
-    h4 {
-      position: absolute;
-      bottom: 10px;
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.2);
-    }
-  }
+.top {
+  border-top: solid 0.3px #403d39;
 }
 
-.mainSoundRange {
-  width: 100%;
-  height: 50px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .volume-slider {
-    height: 11px !important;
-    color: #f3a952 !important;
-    width: 180px !important;
-  }
+.wrapper-menu-icon {
+  color: #403d39;
 
   .icon {
-    width: 20px;
-    height: 20px;
+    padding: 14px 0;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .active {
+    color: #f3a952;
   }
 
   .off {
-    position: absolute;
-    top: 12px;
-    left: 23px;
+    display: none;
   }
+}
 
-  .on {
-    position: absolute;
-    top: 12px;
-    right: 20px;
-  }
+.closeTool {
+  display: none;
+}
+
+.openTool {
+  display: unset;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

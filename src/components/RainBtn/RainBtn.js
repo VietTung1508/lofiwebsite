@@ -3,13 +3,15 @@ import style from "./RainBtn.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudRain } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useRef } from "react";
-import { setRain } from "../../redux/Action/actions";
+import { setRain, setRainVolume } from "../../redux/Action/actions";
+import { useState, useRef, useEffect } from "react";
 
 const cx = className.bind(style);
 
 function RainBtn() {
   const [rain, setRainHere] = useState(false);
+
+  const rainVolume = useSelector((state) => state.setRainVolume.volume);
 
   const audioRef = useRef();
 
@@ -19,8 +21,20 @@ function RainBtn() {
     setRainHere(!rain);
     rain ? dispatch(setRain("rain")) : dispatch(setRain("clear"));
     rain ? audioRef.current.play() : audioRef.current.pause();
-    audioRef.current.volume = 0.3;
+    rain ? dispatch(setRainVolume(50)) : dispatch(setRainVolume(0));
   };
+
+  useEffect(() => {
+    if (rainVolume > 0) {
+      audioRef.current.play();
+      dispatch(setRain("rain"));
+    } else {
+      audioRef.current.pause();
+      dispatch(setRain("clear"));
+    }
+
+    audioRef.current.volume = rainVolume / 100;
+  }, [rainVolume]);
 
   return (
     <button className={cx("wrapper")} onClick={handleRain}>

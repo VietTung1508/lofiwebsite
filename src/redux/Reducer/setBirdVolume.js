@@ -1,10 +1,10 @@
 const initState = {
-  volume: 50,
+  volume: 0,
 };
 
-const mainVolumeReducer = (state = initState, action) => {
+const birdVolumeReducer = (state = initState, action) => {
   switch (action.type) {
-    case "setMainVolume":
+    case "setBirdVolume":
       return {
         ...state,
         volume: action.payload,
@@ -14,4 +14,4 @@ const mainVolumeReducer = (state = initState, action) => {
   }
 };
 
-export default mainVolumeReducer;
+export default birdVolumeReducer;

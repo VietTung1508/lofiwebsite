@@ -6,6 +6,7 @@ import Board from "../ModifileBoard/Board";
 import { useSelector } from "react-redux";
 import RainBtn from "../RainBtn/RainBtn.js";
 import TrafficBtn from "../TrafficBtn/TrafficBtn.js";
+import BirdBtn from "../BirdBtn/BirdBtn.js";
 
 const cx = className.bind(styles);
 
@@ -54,6 +55,7 @@ function Home() {
         <source src="/assets/videos/Day-rainny.mp4" type="video/mp4" />
       </video>
       <TrafficBtn />
+      <BirdBtn />
     </>
   );
 }
