@@ -21,7 +21,7 @@ function RainBtn() {
     setRainHere(!rain);
     rain ? dispatch(setRain("rain")) : dispatch(setRain("clear"));
     rain ? audioRef.current.play() : audioRef.current.pause();
-    rain ? dispatch(setRainVolume(50)) : dispatch(setRainVolume(0));
+    rainVolume === 0 ? dispatch(setRainVolume(50)) : dispatch(setRainVolume(0));
   };
 
   useEffect(() => {

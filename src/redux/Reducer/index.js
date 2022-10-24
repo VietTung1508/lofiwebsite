@@ -5,6 +5,8 @@ import mainVolumeReducer from "./setMainVolume.js";
 import rainVolumeReducer from "./setRainVolume.js";
 import trafficVolumeReducer from "./setCityTrafficVolume.js";
 import birdVolumeReducer from "./setBirdVolume";
+import setMoodReducer from "./setMood.js";
+import setCurrentSongReducer from "./setCurrentSongindex.js";
 
 const rootReducer = combineReducers({
   setMode: modeReducer,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   setRainVolume: rainVolumeReducer,
   setTrafficVolume: trafficVolumeReducer,
   setBirdVolume: birdVolumeReducer,
+  setMood: setMoodReducer,
+  setCurrentSongIndex: setCurrentSongReducer,
 });
 
 export default rootReducer;

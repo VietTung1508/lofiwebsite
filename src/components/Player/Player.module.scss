@@ -52,13 +52,13 @@
   }
 }
 
-.iconExpand {
+.iconExpand,
+.iconVolume,
+.iconMenu {
   color: #fff;
   font-size: 1rem;
 }
 
 .iconVolume {
-  color: #fff;
-  font-size: 1rem;
-  flex-shrink: 0;
+  width: 15px;
 }

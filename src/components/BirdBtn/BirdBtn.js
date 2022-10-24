@@ -20,7 +20,7 @@ function BirnBtn() {
   const handleTraffic = () => {
     setBird(!bird);
     bird ? audioRef.current.play() : audioRef.current.pause();
-    bird ? dispatch(setBirdVolume(50)) : dispatch(setBirdVolume(0));
+    birdVolume === 0 ? dispatch(setBirdVolume(50)) : dispatch(setBirdVolume(0));
   };
 
   useEffect(() => {

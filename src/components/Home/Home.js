@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import RainBtn from "../RainBtn/RainBtn.js";
 import TrafficBtn from "../TrafficBtn/TrafficBtn.js";
 import BirdBtn from "../BirdBtn/BirdBtn.js";
+import Footer from "../Footer/Footer";
 
 const cx = className.bind(styles);
 
@@ -56,6 +57,7 @@ function Home() {
       </video>
       <TrafficBtn />
       <BirdBtn />
+      <Footer />
     </>
   );
 }

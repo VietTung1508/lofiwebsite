@@ -20,7 +20,7 @@ function TrafficBtn() {
   const handleTraffic = () => {
     setTraffic(!traffic);
     traffic ? audioRef.current.play() : audioRef.current.pause();
-    traffic
+    trafficVolume === 0
       ? dispatch(setCityTrafficVolume(50))
       : dispatch(setCityTrafficVolume(0));
   };

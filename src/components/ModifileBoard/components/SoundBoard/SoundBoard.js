@@ -7,6 +7,7 @@ import {
   setRainVolume,
   setCityTrafficVolume,
   setBirdVolume,
+  setMood,
 } from "../../../../redux/Action/actions";
 import ReactAudioPlayer from "react-audio-player";
 
@@ -22,6 +23,8 @@ function SoundBoard() {
   const trafficVolume = useSelector((state) => state.setTrafficVolume.volume);
 
   const birdVolume = useSelector((state) => state.setBirdVolume.volume);
+
+  const mood = useSelector((state) => state.setMood.mood);
 
   const handleRainVolume = (e) => {
     dispatch(setRainVolume(e.target.value));
@@ -39,6 +42,18 @@ function SoundBoard() {
     dispatch(setBirdVolume(e.target.value));
   };
 
+  const handleSleepyMood = () => {
+    dispatch(setMood("sleppy"));
+  };
+
+  const handleJazzyMood = () => {
+    dispatch(setMood("jazzy"));
+  };
+
+  const handleChillMood = () => {
+    dispatch(setMood("chill"));
+  };
+
   return (
     <div className={cx("board")}>
       <div className={cx("board-header")}>
@@ -46,24 +61,24 @@ function SoundBoard() {
         <img src="/assets/images/favicon.png" />
       </div>
       <div className={cx("board-setMood")}>
-        <div className={cx("mood")}>
+        <div className={cx("mood")} onClick={handleSleepyMood}>
           <img
-            className={cx("icon")}
-            src="https://lofi-omega.vercel.app/static/media/sleep.359d9b45c4ac83027ca135b89ed86495.svg"
+            className={cx("icon", mood === "sleppy" ? "active" : "")}
+            src="assets/images/sleep.svg"
           />
           <h4>Sleepy</h4>
         </div>
-        <div className={cx("mood")}>
+        <div className={cx("mood")} onClick={handleJazzyMood}>
           <img
-            src="https://lofi-omega.vercel.app/static/media/jazzy.a2e657b113ecbdb46ca62989b992ded4.svg"
-            className={cx("icon")}
+            src="assets/images/jazzy.svg"
+            className={cx("icon", mood === "jazzy" ? "active" : "")}
           />
           <h4>Jazzy</h4>
         </div>
-        <div className={cx("mood")}>
+        <div className={cx("mood")} onClick={handleChillMood}>
           <img
-            src="https://lofi-omega.vercel.app/static/media/chill.e2ab768a2be20208135054cc64015a0c.svg"
-            className={cx("icon", "active")}
+            src="assets/images/chill.svg"
+            className={cx("icon", mood === "chill" ? "active" : "")}
           />
           <h4>Chill</h4>
         </div>

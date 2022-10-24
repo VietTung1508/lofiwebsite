@@ -9,7 +9,7 @@ import Player from "../Player/Player";
 
 const cx = className.bind(styles);
 
-function Navbar({ onClick }) {
+function Navbar() {
   const date = new Date();
   const [hour, setHour] = useState(
     date.getHours() > 12 ? date.getHours() - 12 : date.getHours()
@@ -20,8 +20,8 @@ function Navbar({ onClick }) {
     setInterval(() => {
       const date = new Date();
       setMinute(date.getMinutes());
-      setHour(date.getHours());
-    }, 15000);
+      setHour(date.getHours() > 12 ? date.getHours() - 12 : date.getHours());
+    }, 30000);
   }, [minute]);
 
   return (

@@ -27,3 +27,13 @@ export const setBirdVolume = (payload) => ({
   type: "setBirdVolume",
   payload,
 });
+
+export const setMood = (payload) => ({
+  type: "setMood",
+  payload,
+});
+
+export const setCurrentSongIndex = (payload) => ({
+  type: "setCurrentSongIndex",
+  payload,
+});
