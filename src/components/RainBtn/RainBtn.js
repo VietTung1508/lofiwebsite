@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from "react";
 
 const cx = className.bind(style);
 
-function RainBtn() {
+function RainBtn({ isCafe = false }) {
   const [rain, setRainHere] = useState(false);
 
   const rainVolume = useSelector((state) => state.setRainVolume.volume);
@@ -37,7 +37,7 @@ function RainBtn() {
   }, [rainVolume]);
 
   return (
-    <button className={cx("wrapper")} onClick={handleRain}>
+    <button className={cx("wrapper", { isCafe })} onClick={handleRain}>
       <FontAwesomeIcon icon={faCloudRain} className={cx("rain")} />
       <audio ref={audioRef} loop src="/assets/noises/rain.mp3"></audio>
     </button>

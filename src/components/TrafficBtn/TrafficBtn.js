@@ -8,7 +8,7 @@ import { setCityTrafficVolume } from "../../redux/Action/actions";
 
 const cx = className.bind(style);
 
-function TrafficBtn() {
+function TrafficBtn({ isCafe = false }) {
   const [traffic, setTraffic] = useState(false);
 
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ function TrafficBtn() {
   }, [trafficVolume]);
 
   return (
-    <button className={cx("wrapper")} onClick={handleTraffic}>
+    <button className={cx("wrapper", { isCafe })} onClick={handleTraffic}>
       <FontAwesomeIcon icon={faCarSide} className={cx("car")} />
       <audio ref={audioRef} loop src="/assets/noises/city_traffic.mp3"></audio>
     </button>

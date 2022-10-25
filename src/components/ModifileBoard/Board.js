@@ -14,12 +14,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SoundBoard from "./components/SoundBoard/SoundBoard";
 import { Slider } from "@mui/material";
+import ScenesBoard from "./components/ScenesBoard/ScenesBoad";
 
 const cx = className.bind(style);
 
 function Board() {
   const [openBoard, setOpenBoard] = useState(false);
   const [moreMenu, setMoreMenu] = useState(false);
+  const [openScenes, setOpenScenes] = useState(false);
+
+  const handleOpenScenes = () => {
+    setOpenScenes(!openScenes);
+    setOpenBoard(false);
+  };
 
   return (
     <>
@@ -44,7 +51,11 @@ function Board() {
         </div>
 
         <div className={cx("wrapper-icon")}>
-          <FontAwesomeIcon className={cx("icon")} icon={faEarthAmerica} />
+          <FontAwesomeIcon
+            className={cx("icon")}
+            icon={faEarthAmerica}
+            onClick={handleOpenScenes}
+          />
         </div>
 
         <div className={cx("wrapper-icon")}>
@@ -70,6 +81,7 @@ function Board() {
       </div>
 
       {openBoard && <SoundBoard />}
+      {openScenes && <ScenesBoard />}
     </>
   );
 }

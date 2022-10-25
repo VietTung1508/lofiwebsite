@@ -8,7 +8,7 @@ import { setBirdVolume } from "../../redux/Action/actions";
 
 const cx = className.bind(style);
 
-function BirnBtn() {
+function BirnBtn({ isCafe = false }) {
   const [bird, setBird] = useState(false);
 
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function BirnBtn() {
   }, [birdVolume]);
 
   return (
-    <button className={cx("wrapper")} onClick={handleTraffic}>
+    <button className={cx("wrapper", { isCafe })} onClick={handleTraffic}>
       <FontAwesomeIcon icon={faDove} className={cx("bird")} />
       <audio ref={audioRef} loop src="/assets/noises/birds.mp3"></audio>
     </button>

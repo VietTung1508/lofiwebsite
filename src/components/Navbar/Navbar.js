@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.scss";
 import className from "classnames/bind";
 import { useState, useEffect, useRef } from "react";
-
+import { Link } from "react-router-dom";
 import Switch from "../Switch/Switch";
 
 import "tippy.js/dist/tippy.css";
@@ -27,9 +27,9 @@ function Navbar() {
   return (
     <nav className={cx("wrapper")}>
       <div className={cx("logo")}>
-        <a href="/">
+        <Link to="/">
           <img src="/assets/images/logo.gif" alt="Logo" />
-        </a>
+        </Link>
       </div>
       <div className={cx("actions")}>
         <div className={cx("clockBox")}>

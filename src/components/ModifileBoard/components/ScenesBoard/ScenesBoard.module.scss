@@ -1,0 +1,11 @@
+.board {
+  min-width: 300px;
+  height: 100px;
+  background-color: #121212;
+  position: absolute;
+  z-index: 9999;
+  top: 25%;
+  right: 80px;
+  border-radius: 24px;
+  overflow: hidden;
+}
