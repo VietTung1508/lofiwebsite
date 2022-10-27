@@ -26,6 +26,13 @@ function Board() {
   const handleOpenScenes = () => {
     setOpenScenes(!openScenes);
     setOpenBoard(false);
+    setMoreMenu(false);
+  };
+
+  const handleOpenBoard = () => {
+    setOpenBoard(!openBoard);
+    setOpenScenes(false);
+    setMoreMenu(false);
   };
 
   return (
@@ -41,9 +48,7 @@ function Board() {
           <FontAwesomeIcon
             className={cx("icon", openBoard ? "active" : "")}
             icon={faSliders}
-            onClick={() => {
-              setOpenBoard(!openBoard);
-            }}
+            onClick={handleOpenBoard}
           />
         </div>
         <div className={cx("wrapper-icon")}>
@@ -52,7 +57,7 @@ function Board() {
 
         <div className={cx("wrapper-icon")}>
           <FontAwesomeIcon
-            className={cx("icon")}
+            className={cx("icon", openScenes ? "active" : "")}
             icon={faEarthAmerica}
             onClick={handleOpenScenes}
           />
@@ -60,10 +65,12 @@ function Board() {
 
         <div className={cx("wrapper-icon")}>
           <FontAwesomeIcon
-            className={cx("icon")}
+            className={cx("icon", moreMenu ? "active" : "")}
             icon={faBookOpen}
             onClick={() => {
               setMoreMenu(!moreMenu);
+              setOpenBoard(false);
+              setOpenScenes(false);
             }}
           />
         </div>
