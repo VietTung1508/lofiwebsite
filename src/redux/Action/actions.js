@@ -13,6 +13,31 @@ export const setMainVolume = (payload) => ({
   payload,
 });
 
+export const setOceanVolume = (payload) => ({
+  type: "setOceanVolume",
+  payload,
+});
+
+export const setPeopleVolume = (payload) => ({
+  type: "setPeopleVolume",
+  payload,
+});
+
+export const setSummerStormVolume = (payload) => ({
+  type: "setSummerStormVolume",
+  payload,
+});
+
+export const setCampFireVolume = (payload) => ({
+  type: "setCampFireVolume",
+  payload,
+});
+
+export const setForestVolume = (payload) => ({
+  type: "setForestVolume",
+  payload,
+});
+
 export const setRainVolume = (payload) => ({
   type: "setRainVolume",
   payload,
@@ -35,5 +60,10 @@ export const setMood = (payload) => ({
 
 export const setCurrentSongIndex = (payload) => ({
   type: "setCurrentSongIndex",
+  payload,
+});
+
+export const setMixMode = (payload) => ({
+  type: "setMixMode",
   payload,
 });

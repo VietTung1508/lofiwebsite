@@ -7,6 +7,12 @@ import trafficVolumeReducer from "./setCityTrafficVolume.js";
 import birdVolumeReducer from "./setBirdVolume";
 import setMoodReducer from "./setMood.js";
 import setCurrentSongReducer from "./setCurrentSongindex.js";
+import mixModeReducer from "./setMixMode.js";
+import campfireVolumeReducer from "./setCampfireVolume.js";
+import forestVolumeReducer from "./setForestVolume";
+import oceanVolumeReducer from "./setOceanVolume";
+import peopleVolumeReducer from "./setPeopleVolume";
+import summerStormVolumeReducer from "./setSummerStormVolume";
 
 const rootReducer = combineReducers({
   setMode: modeReducer,
@@ -17,6 +23,12 @@ const rootReducer = combineReducers({
   setBirdVolume: birdVolumeReducer,
   setMood: setMoodReducer,
   setCurrentSongIndex: setCurrentSongReducer,
+  setMixMode: mixModeReducer,
+  setCampfireVolume: campfireVolumeReducer,
+  setForestVolume: forestVolumeReducer,
+  setPeopleVolume: peopleVolumeReducer,
+  setOceanVolume: oceanVolumeReducer,
+  setSummerStormVolume: summerStormVolumeReducer,
 });
 
 export default rootReducer;

@@ -25,6 +25,10 @@
 }
 
 .container {
+  .disabled {
+    display: none;
+  }
+
   .scene {
     padding: 5px 14px;
     img {

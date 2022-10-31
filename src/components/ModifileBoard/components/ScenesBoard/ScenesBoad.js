@@ -22,7 +22,7 @@ function ScenesBoard() {
               <img src="/assets/images/bookCafe.png" alt="scene" />
             </Link>
           </div>
-          <div className={cx("scene")}>
+          <div className={cx("scene", "premium")}>
             <img src="/assets/images/NewYork.png" alt="scene" />
           </div>
           <div className={cx("scene", "premium")}>
