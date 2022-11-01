@@ -7,9 +7,12 @@ import {
   faBars,
   faForwardFast,
   faPause,
+  faPerson,
   faPlay,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import Tippy from "@tippyjs/react";
+import Tippy from "@tippyjs/react/headless";
+
 import {
   faAddressBook,
   faExpand,
@@ -23,6 +26,41 @@ import { useSelector, useDispatch } from "react-redux";
 import { setCurrentSongIndex } from "../../redux/Action/actions";
 
 const cx = className.bind(style);
+
+const MENU_SETTING = [
+  {
+    icon: "https://app.lofi.co/icons/profile.svg",
+    title: "Login",
+  },
+  {
+    icon: "https://app.lofi.co/icons/pricing.svg",
+    title: "Pricing",
+  },
+  {
+    icon: "https://app.lofi.co/icons/settings_h.svg",
+    title: "Settings",
+  },
+  {
+    icon: "https://app.lofi.co/icons/message.svg",
+    title: "Contact",
+  },
+  {
+    icon: "https://app.lofi.co/icons/new/infos.svg",
+    title: "How is Work",
+  },
+  {
+    icon: "https://app.lofi.co/icons/new/faqs.svg",
+    title: "Playlist",
+  },
+  {
+    icon: "https://app.lofi.co/icons/share.svg",
+    title: "Submit music",
+  },
+  {
+    icon: "https://app.lofi.co/icons/about-us.svg",
+    title: "About us",
+  },
+];
 
 function Player() {
   const [pause, setPause] = useState(true);
@@ -110,26 +148,43 @@ function Player() {
         </button>
       </div>
       <div className={cx("actions")}>
-        <Tippy content="Mute song" arrow={false}>
-          <button
-            className={cx("action-wrap")}
-            onClick={() => {
-              setSound(!sound);
-              audioRef.current.muted = sound;
-            }}
-          >
-            <FontAwesomeIcon
-              icon={!sound ? faVolumeXmark : faVolumeLow}
-              className={cx("iconVolume")}
-            />
-          </button>
-        </Tippy>
+        <button
+          className={cx("action-wrap")}
+          onClick={() => {
+            setSound(!sound);
+            audioRef.current.muted = sound;
+          }}
+        >
+          <FontAwesomeIcon
+            icon={!sound ? faVolumeXmark : faVolumeLow}
+            className={cx("iconVolume")}
+          />
+        </button>
+
         <button className={cx("action-wrap")} onClick={handleFullScreen}>
           <FontAwesomeIcon icon={faExpand} className={cx("iconExpand")} />
         </button>
-        <button className={cx("action-wrap")}>
-          <FontAwesomeIcon icon={faBars} className={cx("iconMenu")} />
-        </button>
+
+        <Tippy
+          trigger="click"
+          placement="bottom-end"
+          render={(attrs) => (
+            <div className="box" tabIndex="-1" {...attrs}>
+              <div className={cx("menu-box")}>
+                {MENU_SETTING.map((item, i) => (
+                  <div key={i} className={cx("menu-item")}>
+                    <img src={item.icon} className={cx("icon")} />
+                    <h4>{item.title}</h4>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        >
+          <button className={cx("action-wrap")}>
+            <FontAwesomeIcon icon={faBars} className={cx("iconMenu")} />
+          </button>
+        </Tippy>
       </div>
     </>
   );

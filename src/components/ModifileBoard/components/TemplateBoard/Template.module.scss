@@ -1,0 +1,49 @@
+.board {
+  width: 360px;
+  height: 276px;
+  background-color: #121212;
+  position: absolute;
+  z-index: 9999;
+  top: 18%;
+  right: 80px;
+  border-radius: 24px;
+}
+
+.header {
+  margin-top: 30px;
+  padding: 5px 16px;
+
+  h4 {
+    color: #fff;
+    font-weight: 800;
+  }
+}
+
+.playlists {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .playlist {
+    img {
+      width: 96px;
+      height: 120px;
+      cursor: pointer;
+    }
+  }
+}
+
+.template {
+  margin-top: 10px;
+  padding: 5px 16px;
+
+  h4 {
+    color: #fff;
+    font-weight: 800;
+  }
+
+  p {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+}

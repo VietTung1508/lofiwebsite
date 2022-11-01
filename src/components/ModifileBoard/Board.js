@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SoundBoard from "./components/SoundBoard/SoundBoard";
 import ScenesBoard from "./components/ScenesBoard/ScenesBoad";
+import TemplateBoard from "./components/TemplateBoard/TemplateBoard";
 import { useSelector } from "react-redux";
 import Tippy from "@tippyjs/react";
 
@@ -22,6 +23,7 @@ function Board() {
   const [openBoard, setOpenBoard] = useState(false);
   const [moreMenu, setMoreMenu] = useState(false);
   const [openScenes, setOpenScenes] = useState(false);
+  const [openTemplate, setOpenTemplate] = useState(false);
 
   const peopleRef = useRef();
 
@@ -38,11 +40,21 @@ function Board() {
     setOpenScenes(!openScenes);
     setOpenBoard(false);
     setMoreMenu(false);
+    setOpenTemplate(false);
   };
 
   const handleOpenBoard = (e) => {
     e.stopPropagation();
     setOpenBoard(!openBoard);
+    setOpenScenes(false);
+    setMoreMenu(false);
+    setOpenTemplate(false);
+  };
+
+  const handleOpenTemplate = (e) => {
+    e.stopPropagation();
+    setOpenTemplate(!openTemplate);
+    setOpenBoard(false);
     setOpenScenes(false);
     setMoreMenu(false);
   };
@@ -130,7 +142,11 @@ function Board() {
 
         <Tippy content="Playlist" placement="left" arrow={false}>
           <div className={cx("wrapper-icon")}>
-            <FontAwesomeIcon className={cx("icon")} icon={faVolleyball} />
+            <FontAwesomeIcon
+              className={cx("icon", openTemplate ? "active" : "")}
+              icon={faVolleyball}
+              onClick={handleOpenTemplate}
+            />
           </div>
         </Tippy>
 
@@ -153,6 +169,7 @@ function Board() {
                 setMoreMenu(!moreMenu);
                 setOpenBoard(false);
                 setOpenScenes(false);
+                setOpenTemplate(false);
               }}
             />
           </div>
@@ -173,6 +190,7 @@ function Board() {
 
       {openBoard && <SoundBoard />}
       {openScenes && <ScenesBoard />}
+      {openTemplate && <TemplateBoard />}
 
       <audio ref={peopleRef} loop src="/assets/noises/people.mp3"></audio>
       <audio ref={oceanRef} loop src="/assets/noises/ocean.mp3"></audio>
