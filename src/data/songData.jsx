@@ -41,6 +41,12 @@ export const chill = [
     mood: "chill",
     src: "/assets/lofi/chill7.mp3",
   },
+  {
+    id: 8,
+    name: "You make colors out of grey",
+    mood: "chill",
+    src: "/assets/lofi/chill8.mp3",
+  },
 ];
 
 export const jazzy = [
@@ -86,6 +92,12 @@ export const jazzy = [
     mood: "jazzy",
     src: "/assets/lofi/jazzy7.mp3",
   },
+  {
+    id: 8,
+    name: "School rooftop",
+    mood: "jazzy",
+    src: "/assets/lofi/jazzy8.mp3",
+  },
 ];
 
 export const sleppy = [
@@ -130,5 +142,11 @@ export const sleppy = [
     name: "Biscuit",
     mood: "sleppy",
     src: "/assets/lofi/sleppy7.mp3",
+  },
+  {
+    id: 8,
+    name: "Orange hues",
+    mood: "sleppy",
+    src: "/assets/lofi/sleppy8.mp3",
   },
 ];

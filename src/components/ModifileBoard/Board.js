@@ -6,7 +6,6 @@ import {
   faBookOpen,
   faEarthAmerica,
   faNoteSticky,
-  faRectangleList,
   faSliders,
   faStopwatch,
   faVolleyball,
@@ -16,6 +15,9 @@ import ScenesBoard from "./components/ScenesBoard/ScenesBoad";
 import TemplateBoard from "./components/TemplateBoard/TemplateBoard";
 import { useSelector } from "react-redux";
 import Tippy from "@tippyjs/react";
+import ToDoList from "./components/ToDoListBoard/ToDoListBoard";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import GitHub from "@mui/icons-material/GitHub";
 
 const cx = className.bind(style);
 
@@ -24,6 +26,7 @@ function Board() {
   const [moreMenu, setMoreMenu] = useState(false);
   const [openScenes, setOpenScenes] = useState(false);
   const [openTemplate, setOpenTemplate] = useState(false);
+  const [openTodo, setOpenTodo] = useState(false);
 
   const peopleRef = useRef();
 
@@ -41,6 +44,7 @@ function Board() {
     setOpenBoard(false);
     setMoreMenu(false);
     setOpenTemplate(false);
+    setOpenTodo(false);
   };
 
   const handleOpenBoard = (e) => {
@@ -49,6 +53,7 @@ function Board() {
     setOpenScenes(false);
     setMoreMenu(false);
     setOpenTemplate(false);
+    setOpenTodo(false);
   };
 
   const handleOpenTemplate = (e) => {
@@ -57,6 +62,11 @@ function Board() {
     setOpenBoard(false);
     setOpenScenes(false);
     setMoreMenu(false);
+    setOpenTodo(false);
+  };
+
+  const handleTodoList = () => {
+    setOpenTodo(!openTodo);
   };
 
   const oceanVolume = useSelector((state) => state.setOceanVolume.volume);
@@ -170,27 +180,47 @@ function Board() {
                 setOpenBoard(false);
                 setOpenScenes(false);
                 setOpenTemplate(false);
+                setOpenTodo(false);
               }}
             />
           </div>
         </Tippy>
 
         <div className={cx(moreMenu ? "openTool" : "closeTool")}>
-          <div className={cx("wrapper-menu-icon", "top")}>
-            <FontAwesomeIcon className={cx("icon")} icon={faStopwatch} />
-          </div>
-          <div className={cx("wrapper-menu-icon")}>
-            <FontAwesomeIcon className={cx("icon")} icon={faNoteSticky} />
-          </div>
-          <div className={cx("wrapper-menu-icon")}>
-            <FontAwesomeIcon className={cx("icon")} icon={faRectangleList} />
-          </div>
+          <Tippy content="Timer" placement="left" arrow={false}>
+            <div className={cx("wrapper-menu-icon", "top")}>
+              <FontAwesomeIcon className={cx("icon")} icon={faStopwatch} />
+            </div>
+          </Tippy>
+          <Tippy content="ToDoList" placement="left" arrow={false}>
+            <div className={cx("wrapper-menu-icon")}>
+              <FontAwesomeIcon
+                className={cx("icon")}
+                icon={faNoteSticky}
+                onClick={handleTodoList}
+              />
+            </div>
+          </Tippy>
+          <Tippy content="Source Code" placement="left" arrow={false}>
+            <div className={cx("wrapper-menu-icon")}>
+              <div className={cx("git")}>
+                <a
+                  href="https://github.com/VietTung1508/lofiwebsite"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <GitHub />
+                </a>
+              </div>
+            </div>
+          </Tippy>
         </div>
       </div>
 
       {openBoard && <SoundBoard />}
       {openScenes && <ScenesBoard />}
       {openTemplate && <TemplateBoard />}
+      {moreMenu && openTodo && <ToDoList />}
 
       <audio ref={peopleRef} loop src="/assets/noises/people.mp3"></audio>
       <audio ref={oceanRef} loop src="/assets/noises/ocean.mp3"></audio>

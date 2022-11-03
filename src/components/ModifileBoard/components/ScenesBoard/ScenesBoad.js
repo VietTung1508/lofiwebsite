@@ -18,7 +18,7 @@ function ScenesBoard() {
             </Link>
           </div>
           <div className={cx("scene")}>
-            <Link to="cafe">
+            <Link to="/cafe">
               <img src="/assets/images/bookCafe.png" alt="scene" />
             </Link>
           </div>
@@ -27,8 +27,10 @@ function ScenesBoard() {
               <img src="/assets/images/kyoto.png" alt="scene" />
             </Link>
           </div>
-          <div className={cx("scene", "premium")}>
-            <img src="/assets/images/NewYork.png" alt="scene" />
+          <div className={cx("scene")}>
+            <Link to="/newyork">
+              <img src="/assets/images/NewYork.png" alt="scene" />
+            </Link>
           </div>
           <div className={cx("scene", "premium")}>
             <img src="/assets/images/cafe.png" alt="scene" />

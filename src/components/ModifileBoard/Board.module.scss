@@ -53,6 +53,16 @@
     cursor: pointer;
   }
 
+  .git {
+    padding: 10px;
+    transform: scale(0.8);
+    cursor: pointer;
+
+    a {
+      color: #403d39;
+    }
+  }
+
   .active {
     color: #f3a952;
   }

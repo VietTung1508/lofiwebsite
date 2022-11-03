@@ -67,3 +67,18 @@ export const setMixMode = (payload) => ({
   type: "setMixMode",
   payload,
 });
+
+export const addTodo = (payload) => ({
+  type: "addTodo",
+  payload,
+});
+
+export const deleteTodo = (payload) => ({
+  type: "deleteTodo",
+  payload,
+});
+
+export const setCompleted = (payload) => ({
+  type: "setCompleted",
+  payload,
+});

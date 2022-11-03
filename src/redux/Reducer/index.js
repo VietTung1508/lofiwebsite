@@ -13,6 +13,7 @@ import forestVolumeReducer from "./setForestVolume";
 import oceanVolumeReducer from "./setOceanVolume";
 import peopleVolumeReducer from "./setPeopleVolume";
 import summerStormVolumeReducer from "./setSummerStormVolume";
+import toDoReducer from "./TodoList.js";
 
 const rootReducer = combineReducers({
   setMode: modeReducer,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   setPeopleVolume: peopleVolumeReducer,
   setOceanVolume: oceanVolumeReducer,
   setSummerStormVolume: summerStormVolumeReducer,
+  toDoList: toDoReducer,
 });
 
 export default rootReducer;
