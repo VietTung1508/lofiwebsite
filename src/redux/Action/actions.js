@@ -18,6 +18,21 @@ export const setOceanVolume = (payload) => ({
   payload,
 });
 
+export const setWindVolume = (payload) => ({
+  type: "setWindVolume",
+  payload,
+});
+
+export const setKeyboardVolume = (payload) => ({
+  type: "setKeyboardVolume",
+  payload,
+});
+
+export const setWindowRainVolume = (payload) => ({
+  type: "setWindowRainVolume",
+  payload,
+});
+
 export const setPeopleVolume = (payload) => ({
   type: "setPeopleVolume",
   payload,

@@ -21,7 +21,6 @@ function Kyoto() {
     <>
       <Navbar />
       <Board />
-      <RainBtn  isKyoto />
 
       <AnimatedPage>
         <>

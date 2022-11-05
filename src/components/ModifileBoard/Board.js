@@ -18,6 +18,8 @@ import Tippy from "@tippyjs/react";
 import ToDoList from "./components/ToDoListBoard/ToDoListBoard";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GitHub from "@mui/icons-material/GitHub";
+import TimerBoard from "./components/TimerBoard/TimerBoard";
+import ReactAudioPlayer from "react-audio-player";
 
 const cx = className.bind(style);
 
@@ -27,6 +29,7 @@ function Board() {
   const [openScenes, setOpenScenes] = useState(false);
   const [openTemplate, setOpenTemplate] = useState(false);
   const [openTodo, setOpenTodo] = useState(false);
+  const [openTimer, setOpenTimer] = useState(false);
 
   const peopleRef = useRef();
 
@@ -37,6 +40,12 @@ function Board() {
   const forestRef = useRef();
 
   const oceanRef = useRef();
+
+  const windRef = useRef();
+
+  const windowRainRef = useRef();
+
+  const keyboardRef = useRef();
 
   const handleOpenScenes = (e) => {
     e.stopPropagation();
@@ -65,8 +74,23 @@ function Board() {
     setOpenTodo(false);
   };
 
+  const handleOpenMoreMenu = () => {
+    setMoreMenu(!moreMenu);
+    setOpenBoard(false);
+    setOpenScenes(false);
+    setOpenTemplate(false);
+    setOpenTodo(false);
+    setOpenTimer(false);
+  };
+
   const handleTodoList = () => {
     setOpenTodo(!openTodo);
+    setOpenTimer(false);
+  };
+
+  const handleTimer = () => {
+    setOpenTimer(!openTimer);
+    setOpenTodo(false);
   };
 
   const oceanVolume = useSelector((state) => state.setOceanVolume.volume);
@@ -77,6 +101,14 @@ function Board() {
 
   const summerStormVolume = useSelector(
     (state) => state.setSummerStormVolume.volume
+  );
+
+  const windVolume = useSelector((state) => state.setWindVolume.volume);
+
+  const keyboardVolume = useSelector((state) => state.setKeyboardVolume.volume);
+
+  const windowRainVolume = useSelector(
+    (state) => state.setWindowrainVolume.volume
   );
 
   const forestVolume = useSelector((state) => state.setForestVolume.volume);
@@ -131,6 +163,36 @@ function Board() {
     forestRef.current.volume = forestVolume / 100;
   }, [forestVolume]);
 
+  useEffect(() => {
+    if (windVolume > 0) {
+      windRef.current.play();
+    } else {
+      windRef.current.pause();
+    }
+
+    windRef.current.volume = windVolume / 100;
+  }, [windVolume]);
+
+  useEffect(() => {
+    if (windowRainVolume > 0) {
+      windowRainRef.current.play();
+    } else {
+      windowRainRef.current.pause();
+    }
+
+    windowRainRef.current.volume = windowRainVolume / 100;
+  }, [windowRainVolume]);
+
+  useEffect(() => {
+    if (keyboardVolume > 0) {
+      keyboardRef.current.play();
+    } else {
+      keyboardRef.current.pause();
+    }
+
+    keyboardRef.current.volume = keyboardVolume / 100;
+  }, [keyboardVolume]);
+
   return (
     <>
       <div
@@ -175,13 +237,7 @@ function Board() {
             <FontAwesomeIcon
               className={cx("icon", moreMenu ? "active" : "")}
               icon={faBookOpen}
-              onClick={() => {
-                setMoreMenu(!moreMenu);
-                setOpenBoard(false);
-                setOpenScenes(false);
-                setOpenTemplate(false);
-                setOpenTodo(false);
-              }}
+              onClick={handleOpenMoreMenu}
             />
           </div>
         </Tippy>
@@ -189,7 +245,11 @@ function Board() {
         <div className={cx(moreMenu ? "openTool" : "closeTool")}>
           <Tippy content="Timer" placement="left" arrow={false}>
             <div className={cx("wrapper-menu-icon", "top")}>
-              <FontAwesomeIcon className={cx("icon")} icon={faStopwatch} />
+              <FontAwesomeIcon
+                className={cx("icon")}
+                icon={faStopwatch}
+                onClick={handleTimer}
+              />
             </div>
           </Tippy>
           <Tippy content="ToDoList" placement="left" arrow={false}>
@@ -221,6 +281,7 @@ function Board() {
       {openScenes && <ScenesBoard />}
       {openTemplate && <TemplateBoard />}
       {moreMenu && openTodo && <ToDoList />}
+      {moreMenu && openTimer && <TimerBoard />}
 
       <audio ref={peopleRef} loop src="/assets/noises/people.mp3"></audio>
       <audio ref={oceanRef} loop src="/assets/noises/ocean.mp3"></audio>
@@ -231,6 +292,13 @@ function Board() {
         src="/assets/noises/summerStorm.mp3"
       ></audio>
       <audio ref={forestRef} loop src="/assets/noises/forestNight.mp3"></audio>
+      <audio ref={windRef} loop src="/assets/noises/wind.mp3"></audio>
+      <audio
+        ref={windowRainRef}
+        loop
+        src="/assets/noises/Window+rain.mp3"
+      ></audio>
+      <audio ref={keyboardRef} loop src="/assets/noises/keyboard.mp3"></audio>
     </>
   );
 }

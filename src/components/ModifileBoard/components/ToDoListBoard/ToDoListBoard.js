@@ -68,7 +68,7 @@ function ToDoList() {
           placeholder="Add a task . . ."
           value={inp}
           required
-          maxlength="25"
+          maxLength="25"
           onChange={(e) => {
             setInp(e.target.value);
           }}

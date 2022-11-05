@@ -22,7 +22,7 @@ function NewYork() {
     <>
       <Navbar />
       <Board />
-      <RainBtn />
+      <RainBtn isNewYork />
 
       <AnimatedPage>
         <>
@@ -63,8 +63,8 @@ function NewYork() {
           </video>
         </>
       </AnimatedPage>
-      <TrafficBtn />
-      <BirdBtn />
+      <TrafficBtn isNewYork />
+      <BirdBtn isNewYork />
       <Footer />
     </>
   );

@@ -14,6 +14,9 @@ import oceanVolumeReducer from "./setOceanVolume";
 import peopleVolumeReducer from "./setPeopleVolume";
 import summerStormVolumeReducer from "./setSummerStormVolume";
 import toDoReducer from "./TodoList.js";
+import keyboardVolumeReducer from "./setKeyboardVolume.js";
+import windVolumeReducer from "./setWindVolume";
+import windownRainVolumeReducer from "./setWindowrainVolume.js";
 
 const rootReducer = combineReducers({
   setMode: modeReducer,
@@ -30,6 +33,9 @@ const rootReducer = combineReducers({
   setPeopleVolume: peopleVolumeReducer,
   setOceanVolume: oceanVolumeReducer,
   setSummerStormVolume: summerStormVolumeReducer,
+  setWindVolume: windVolumeReducer,
+  setWindowrainVolume: windownRainVolumeReducer,
+  setKeyboardVolume: keyboardVolumeReducer,
   toDoList: toDoReducer,
 });
 

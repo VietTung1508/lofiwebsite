@@ -2,6 +2,7 @@ import { Slider } from "@mui/material";
 import className from "classnames/bind";
 import style from "./SoundBoard.module.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { useMemo } from "react";
 import {
   setMainVolume,
   setRainVolume,
@@ -14,6 +15,9 @@ import {
   setSummerStormVolume,
   setPeopleVolume,
   setForestVolume,
+  setWindVolume,
+  setWindowRainVolume,
+  setKeyboardVolume,
 } from "../../../../redux/Action/actions";
 
 const cx = className.bind(style);
@@ -42,6 +46,14 @@ function SoundBoard() {
   );
 
   const forestVolume = useSelector((state) => state.setForestVolume.volume);
+
+  const windVolume = useSelector((state) => state.setWindVolume.volume);
+
+  const keyboardVolume = useSelector((state) => state.setKeyboardVolume.volume);
+
+  const windowRainVolume = useSelector(
+    (state) => state.setWindowrainVolume.volume
+  );
 
   const mood = useSelector((state) => state.setMood.mood);
 
@@ -79,6 +91,18 @@ function SoundBoard() {
 
   const handleForestVolume = (e) => {
     dispatch(setForestVolume(e.target.value));
+  };
+
+  const handleKeyboardVolume = (e) => {
+    dispatch(setKeyboardVolume(e.target.value));
+  };
+
+  const handleWindVolume = (e) => {
+    dispatch(setWindVolume(e.target.value));
+  };
+
+  const handleWindowRainVolume = (e) => {
+    dispatch(setWindowRainVolume(e.target.value));
   };
 
   const handleSleepyMood = () => {
@@ -305,6 +329,78 @@ function SoundBoard() {
                 <Slider
                   value={peopleVolume}
                   onChange={handlePeopleVolume}
+                  className={cx("volume-slider")}
+                  sx={{
+                    "& .MuiSlider-thumb": {
+                      backgroundImage:
+                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      backgroundColor: "transparent",
+
+                      width: "25px",
+                      height: "25px",
+                    },
+                    "& .MuiSlider-rail": {
+                      color: "rgb(40, 40, 40)",
+                    },
+                  }}
+                />
+              </div>
+              <div className={cx("sound")}>
+                <h5 className={cx("sound-title")}>Wind</h5>
+
+                <Slider
+                  value={windVolume}
+                  onChange={handleWindVolume}
+                  className={cx("volume-slider")}
+                  sx={{
+                    "& .MuiSlider-thumb": {
+                      backgroundImage:
+                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      backgroundColor: "transparent",
+
+                      width: "25px",
+                      height: "25px",
+                    },
+                    "& .MuiSlider-rail": {
+                      color: "rgb(40, 40, 40)",
+                    },
+                  }}
+                />
+              </div>
+              <div className={cx("sound")}>
+                <h5 className={cx("sound-title")}>Windown Rain</h5>
+
+                <Slider
+                  value={windowRainVolume}
+                  onChange={handleWindowRainVolume}
+                  className={cx("volume-slider")}
+                  sx={{
+                    "& .MuiSlider-thumb": {
+                      backgroundImage:
+                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      backgroundColor: "transparent",
+
+                      width: "25px",
+                      height: "25px",
+                    },
+                    "& .MuiSlider-rail": {
+                      color: "rgb(40, 40, 40)",
+                    },
+                  }}
+                />
+              </div>
+              <div className={cx("sound")}>
+                <h5 className={cx("sound-title")}>Keyboard</h5>
+
+                <Slider
+                  value={keyboardVolume}
+                  onChange={handleKeyboardVolume}
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {

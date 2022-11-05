@@ -41,6 +41,15 @@ function ScenesBoard() {
           <div className={cx("scene", "premium")}>
             <img src="/assets/images/forest.png" alt="scene" />
           </div>
+          <div className={cx("scene", "premium")}>
+            <img src="/assets/images/van.png" alt="scene" />
+          </div>
+          <div className={cx("scene", "premium")}>
+            <img src="/assets/images/summerday.png" alt="scene" />
+          </div>
+          <div className={cx("scene", "premium")}>
+            <img src="/assets/images/ocean.png" alt="scene" />
+          </div>
         </div>
       </div>
     </div>
