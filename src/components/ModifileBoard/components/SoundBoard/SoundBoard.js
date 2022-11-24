@@ -2,7 +2,6 @@ import { Slider } from "@mui/material";
 import className from "classnames/bind";
 import style from "./SoundBoard.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { useMemo } from "react";
 import {
   setMainVolume,
   setRainVolume,
@@ -125,19 +124,21 @@ function SoundBoard() {
     <div className={cx("board", mixMode ? "openMix" : "")}>
       <div className={cx("board-header")}>
         <h4>Mood</h4>
-        <img src="/assets/images/favicon.png" />
+        <img src="/assets/images/favicon.png" alt="logo" />
       </div>
       <div className={cx("board-setMood")}>
         <div className={cx("mood")} onClick={handleSleepyMood}>
           <img
             className={cx("icon", mood === "sleppy" ? "active" : "")}
             src="assets/images/sleep.svg"
+            alt="sleep"
           />
           <h4>Sleepy</h4>
         </div>
         <div className={cx("mood")} onClick={handleJazzyMood}>
           <img
             src="assets/images/jazzy.svg"
+            alt="jazzy"
             className={cx("icon", mood === "jazzy" ? "active" : "")}
           />
           <h4>Jazzy</h4>
@@ -145,6 +146,7 @@ function SoundBoard() {
         <div className={cx("mood")} onClick={handleChillMood}>
           <img
             src="assets/images/chill.svg"
+            alt="mood"
             className={cx("icon", mood === "chill" ? "active" : "")}
           />
           <h4>Chill</h4>
@@ -153,8 +155,9 @@ function SoundBoard() {
 
       <div className={cx("mainSoundRange")}>
         <img
-          src="https://lofi-omega.vercel.app/static/media/volumemin.a7bf30f88fcb9de654d08d0868b2b75a.svg"
+          src="/assets/images/soundoff.svg"
           className={cx("icon", "off")}
+          alt=""
         />
         <Slider
           value={mainVolume}
@@ -172,8 +175,9 @@ function SoundBoard() {
           }}
         />
         <img
-          src="https://lofi-omega.vercel.app/static/media/volumemax.93ab152910c0fe4211ba3788895cae79.svg"
+          src="/assets/images/soundon.svg"
           className={cx("icon", "on")}
+          alt=""
         />
       </div>
       <div className={cx("sounds")}>
@@ -187,14 +191,11 @@ function SoundBoard() {
               className={cx("volume-slider")}
               sx={{
                 "& .MuiSlider-thumb": {
-                  backgroundImage:
-                    "url('https://app.lofi.co/static/media/city.94c8d02a68d3a8d7464a0cf692381ed8.svg')",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
-                  backgroundColor: "transparent",
 
-                  width: "25px",
-                  height: "25px",
+                  width: "23px",
+                  height: "22px",
                 },
                 "& .MuiSlider-rail": {
                   color: "rgb(40, 40, 40)",
@@ -210,14 +211,10 @@ function SoundBoard() {
               className={cx("volume-slider")}
               sx={{
                 "& .MuiSlider-thumb": {
-                  backgroundImage:
-                    "url('https://app.lofi.co/static/media/rain-city.ce03bde4b19d80f61cd0316d59f3dbab.svg')",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
-                  backgroundColor: "transparent",
-
-                  width: "25px",
-                  height: "25px",
+                  width: "23px",
+                  height: "22px",
                 },
                 "& .MuiSlider-rail": {
                   color: "rgb(40, 40, 40)",
@@ -234,14 +231,11 @@ function SoundBoard() {
               className={cx("volume-slider")}
               sx={{
                 "& .MuiSlider-thumb": {
-                  backgroundImage:
-                    "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
-                  backgroundColor: "transparent",
 
-                  width: "25px",
-                  height: "25px",
+                  width: "23px",
+                  height: "22px",
                 },
                 "& .MuiSlider-rail": {
                   color: "rgb(40, 40, 40)",
@@ -260,14 +254,11 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
 
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -284,14 +275,10 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
-
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -308,14 +295,11 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
 
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -332,14 +316,11 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
 
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -356,14 +337,10 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
-
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -380,14 +357,10 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
-
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -404,14 +377,10 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
-
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -428,14 +397,10 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
-
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
@@ -452,14 +417,10 @@ function SoundBoard() {
                   className={cx("volume-slider")}
                   sx={{
                     "& .MuiSlider-thumb": {
-                      backgroundImage:
-                        "url('https://app.lofi.co/static/media/bird.59f98018990764ffe88f09dd296771d7.svg')",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      backgroundColor: "transparent",
-
-                      width: "25px",
-                      height: "25px",
+                      width: "23px",
+                      height: "22px",
                     },
                     "& .MuiSlider-rail": {
                       color: "rgb(40, 40, 40)",
