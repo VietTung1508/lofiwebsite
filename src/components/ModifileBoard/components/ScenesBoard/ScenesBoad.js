@@ -28,10 +28,16 @@ function ScenesBoard() {
             </Link>
           </div>
           <div className={cx("scene")}>
+            <Link to="/seoul">
+              <img src="/assets/images/seoul.png" alt="scene" />
+            </Link>
+          </div>
+          <div className={cx("scene")}>
             <Link to="/newyork">
               <img src="/assets/images/NewYork.png" alt="scene" />
             </Link>
           </div>
+
           <div className={cx("scene", "premium")}>
             <img src="/assets/images/cafe.png" alt="scene" />
           </div>

@@ -114,7 +114,6 @@ function Player() {
     if (!window.screenTop && !window.screenY) {
       document.documentElement.requestFullscreen();
     } else {
-      console.log("exit");
       document.exitFullscreen();
     }
   };

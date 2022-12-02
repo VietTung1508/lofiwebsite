@@ -8,7 +8,7 @@ import { setCityTrafficVolume } from "../../redux/Action/actions";
 
 const cx = className.bind(style);
 
-function TrafficBtn({ isCafe = false, isKyoto = false, isNewYork = false }) {
+function TrafficBtn({ isCafe = false, isKyoto = false, isNewYork = false , isSeoul = false}) {
   const [traffic, setTraffic] = useState(false);
 
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function TrafficBtn({ isCafe = false, isKyoto = false, isNewYork = false }) {
 
   return (
     <button
-      className={cx("wrapper", { isCafe, isKyoto, isNewYork })}
+      className={cx("wrapper", { isCafe, isKyoto, isNewYork , isSeoul})}
       onClick={handleTraffic}
     >
       <FontAwesomeIcon icon={faCarSide} className={cx("car")} />

@@ -53,6 +53,12 @@ export const chill = [
     mood: "chill",
     src: "/assets/lofi/chill9.mp3",
   },
+  {
+    id: 10,
+    name: "Aruarian dance",
+    mood: "chill",
+    src: "/assets/lofi/chill10.mp3",
+  },
 ];
 
 export const jazzy = [
@@ -110,6 +116,12 @@ export const jazzy = [
     mood: "jazzy",
     src: "/assets/lofi/jazzy9.mp3",
   },
+  {
+    id: 10,
+    name: "S o l a c e",
+    mood: "jazzy",
+    src: "/assets/lofi/jazzy10.mp3",
+  },
 ];
 
 export const sleppy = [
@@ -166,5 +178,11 @@ export const sleppy = [
     name: "Great Fairys Fountain ",
     mood: "sleppy",
     src: "/assets/lofi/sleppy9.mp3",
+  },
+  {
+    id: 10,
+    name: "lonely",
+    mood: "sleppy",
+    src: "/assets/lofi/sleppy10.mp3",
   },
 ];
