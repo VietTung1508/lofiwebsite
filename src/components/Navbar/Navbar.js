@@ -36,7 +36,7 @@ function Navbar() {
           <span>
             <p>{`${hour >= 10 ? hour : `0${hour}`}:${
               minute >= 10 ? minute : `0${minute}`
-            } ${hour < 12 ? "AM" : "PM"}`}</p>
+            } ${date.getHours() < 12 ? "AM" : "PM"}`}</p>
           </span>
         </div>
 
